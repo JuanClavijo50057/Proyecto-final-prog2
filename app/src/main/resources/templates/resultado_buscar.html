@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado Libros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1>Resultado de Búsqueda</h1>
+    <div th:if="${libroEncontrado != null}">
+        <h2>Libro Encontrado:</h2>
+        <p><strong>ISBN:</strong> <span th:text="${libroEncontrado.isbn}"></span></p>
+        <p><strong>Título:</strong> <span th:text="${libroEncontrado.titulo}"></span></p>
+        <p><strong>Autor:</strong> <span th:text="${libroEncontrado.autor}"></span></p>
+        <p><strong>Fecha de Publicacion:</strong> <span th:text="${libroEncontrado.fecha_publicacion}"></span></p>
+        <p><strong>Cantidad Disponible:</strong> <span th:text="${libroEncontrado.cantidad_disponible}"></span></p>
+    </div>
+    <div th:if="${libroEncontrado == null}">
+        <h2>No se encontró ningún libro con el filtro proporcionado: <span th:text="${filtro}"></span></h2>
+    </div>
+    <a th:href="@{/buscar-libro}">*Buscar otro libro</a>
+    <a th:href="@{/}">*Principal</a>
+</body>
+
+</html>

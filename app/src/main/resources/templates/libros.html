@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="mt-5">Formulario de Libro</h2>
+        <table border="3">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Genero</th>
+                    <th>Fecha de publicacion</th>
+                    <th>ISBN</th>
+                    <th>Cantidad Disponible</th>
+                    <th>Descripcion</th>
+                    <th>Imagen de la Portada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="libro : ${libroListAttribute}">
+                    <td th:text="${libro.id}"></td>
+                    <td th:text="${libro.titulo}"></td>
+                    <td th:text="${libro.autor}"></td>
+                    <td th:text="${libro.genero}"></td>
+                    <td th:text="${libro.fecha_publicacion}"></td>
+                    <td th:text="${libro.isbn}"></td>
+                    <td th:text="${libro.cantidad_disponible}"></td>
+                    <td th:text="${libro.descripcion}"></td>
+                    <td th:text="${libro.imagen_portada}"></td>
+                    <td>
+                        <a th:href="@{/editar-libro/{isbn}(isbn=${libro.isbn})}">Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Principal</a></li>
+            </ul>
+        </nav>
+</body>
+
+</html>
